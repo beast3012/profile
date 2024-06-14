@@ -41,8 +41,8 @@ function Header({ scrollToSection }) {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} />
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -58,7 +58,7 @@ function Header({ scrollToSection }) {
             }}
           >
             LOGO
-          </Typography>
+          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -100,7 +100,7 @@ function Header({ scrollToSection }) {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
