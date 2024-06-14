@@ -5,6 +5,7 @@ import Project from './components/Project';
 import Skill from './components/Skill';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/ScrollToTopButton';
 
 function App() {
   const homeRef = useRef(null);
@@ -33,6 +34,7 @@ function App() {
       <Skill ref={skillRef} />
       <Contact ref={contactRef} />
       <Footer />
+      <BackToTop />
     </>
   );
 }

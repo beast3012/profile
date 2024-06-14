@@ -40,7 +40,7 @@ function Header({ scrollToSection }) {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters id="back-to-top-anchor">
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} />
           {/* <Typography
             variant="h6"
