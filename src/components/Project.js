@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const card = (
   <Box
     component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)', width: 100}}
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(1)', my: '2px' }}
   >
     <Card variant="outlined">
     <React.Fragment>
@@ -52,20 +52,13 @@ const Project = React.forwardRef((props, ref) => (
   <Box ref={ref} sx={{ height: '100vh', backgroundColor: '#c0c0c0', p: 4 }}>
     <Typography variant="h2">Project Section</Typography>
     <p>Content for the project section.</p>
-    <Box sx={{ flexGrow: 1, p: 2 }}>
-      <Grid container spacing={2.5}>
-        <Grid item xs={3}>
-          <Item>{card}</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>{card}</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>{card}</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>{card}</Item>
-        </Grid>
+    <Box sx={{ flexGrow: 1, p: 2, height: '50vh' }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        {Array.from(Array(3 )).map((_, index) => (
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <Item>{card}</Item>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   </Box>
