@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,6 +21,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Header({ scrollToSection }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,8 +38,20 @@ function Header({ scrollToSection }) {
     setAnchorElUser(null);
   };
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setIsScrolled(offset > 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: isScrolled ? 'primary.main' : 'transparent', boxShadow: isScrolled ? 1 : 'none', transition: 'background-color 0.3s' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters id="back-to-top-anchor">
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} />
