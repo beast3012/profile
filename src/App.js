@@ -29,10 +29,12 @@ function App() {
   return (
     <>
       <Header scrollToSection={scrollToSection} />
+      <div style={{ marginTop: '64px' }}>
       <Home ref={homeRef} />
       <Project ref={projectRef} />
       <Skill ref={skillRef} />
       <Contact ref={contactRef} />
+      </div>
       <Footer />
       <BackToTop />
     </>
