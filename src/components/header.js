@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,16 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
 import imageAvatar from'../imges/1.jpg';
 
 const pages = ['Home', 'Project', 'Skill', 'Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header({ scrollToSection }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,11 +36,25 @@ function Header({ scrollToSection }) {
     setAnchorElUser(null);
   };
 
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setIsScrolled(offset > 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: isScrolled ? 'transparent' : 'c0c0c0', 
+                                   boxShadow: isScrolled ? 0 : 'none', 
+                                   transition: 'tranparent 0.3s' }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} />
+        <Toolbar disableGutters id="back-to-top-anchor">
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} /> */}
           {/* <Typography
             variant="h6"
             noWrap
@@ -153,9 +166,9 @@ function Header({ scrollToSection }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>

@@ -5,6 +5,7 @@ import Project from './components/Project';
 import Skill from './components/Skill';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackToTop from './components/ScrollToTopButton';
 
 function App() {
   const homeRef = useRef(null);
@@ -28,11 +29,14 @@ function App() {
   return (
     <>
       <Header scrollToSection={scrollToSection} />
+      <div style={{ marginTop: '64px' }}>
       <Home ref={homeRef} />
       <Project ref={projectRef} />
       <Skill ref={skillRef} />
       <Contact ref={contactRef} />
+      </div>
       <Footer />
+      <BackToTop />
     </>
   );
 }
