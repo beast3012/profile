@@ -49,7 +49,9 @@ function Header({ scrollToSection }) {
   }, []);
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: isScrolled ? 'c0c0c0' : 'transparent', boxShadow: isScrolled ? 1 : 'none', transition: 'background-color 0.3s' }}>
+    <AppBar position="fixed" sx={{ backgroundColor: isScrolled ? 'transparent' : 'c0c0c0', 
+                                   boxShadow: isScrolled ? 0 : 'none', 
+                                   transition: 'tranparent 0.3s' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters id="back-to-top-anchor">
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1.5 }} /> */}
