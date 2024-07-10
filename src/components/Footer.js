@@ -12,7 +12,7 @@ const Footer = () => {
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', justifyContent: 'center' } }}>
             <Typography variant="body1" color="inherit">
-              &copy; {new Date().getFullYear()} My Website
+              {new Date().getFullYear()} My Website
             </Typography>
           </Box>
         </Toolbar>

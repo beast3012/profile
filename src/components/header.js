@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import ModeSwitch from './buttons/ModeSwitch';
+
 
 import imageAvatar from'../imges/1.jpg';
 
@@ -72,6 +74,7 @@ function Header({ scrollToSection }) {
           >
             LOGO
           </Typography> */}
+          <ModeSwitch />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
